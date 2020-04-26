@@ -1,0 +1,30 @@
+{
+    "2019": [
+        { "name": "Январь" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Февраль" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Март" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Апрель" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Май" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Июнь" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Июль" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Август" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Сентябрь" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Октябрь" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Ноябрь" , "cost": 30000, "ku": null, "deposited": null },
+        { "name": "Декабрь", "cost": 30000, "ku": null, "deposited": null }
+    ],
+    "2020": [
+        { "name": "Январь" , "cost": 26000, "ku": 3898, "deposited": 30000 },
+        { "name": "Февраль" , "cost": 26000, "ku": 2955, "deposited": 30000 },
+        { "name": "Март" , "cost": 26000, "ku": 3245, "deposited": 30000 },
+        { "name": "Апрель" , "cost": 26000, "ku": 3625, "deposited": 30000 },
+        { "name": "Май" , "cost": 26000, "ku": 3454, "deposited": 30000 },
+        { "name": "Июнь" , "cost": 26000, "ku": null, "deposited": null },
+        { "name": "Июль" , "cost": 26000, "ku": null , "deposited": null },
+        { "name": "Август" , "cost": 26000, "ku": null, "deposited": null },
+        { "name": "Сентябрь" , "cost": 26000, "ku": null, "deposited": null },
+        { "name": "Октябрь" , "cost": 26000, "ku": null, "deposited": null },
+        { "name": "Ноябрь" , "cost": 26000, "ku": null, "deposited": null },
+        { "name": "Декабрь", "cost": 26000, "ku": null, "deposited": null }
+    ]
+}
