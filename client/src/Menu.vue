@@ -71,6 +71,7 @@ export default {
 .menu-list-ul {
     background-color: rgba(255, 255, 255, 0.200);
     position: absolute;
+    z-index: 2;
     width: 100px;
 }
 .menu-list-item {
