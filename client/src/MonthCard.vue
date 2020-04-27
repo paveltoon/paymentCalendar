@@ -1,5 +1,5 @@
 <template>
-	<div class="month-card" :style="{ backgroundColor: calcColor }">
+	<div class="month-card" :style="{ backgroundColor: calcColor }" :class="{'month-card-flip': isActive}">
 		<div class="month-card-header">
 			<div class="month-card-header_number">
 				<span :style="{ color: calcColor }">
@@ -37,7 +37,7 @@
 			<button
 				class="btn btn-edit"
 				:style="{ color: calcColor }"
-				@click="consol($event, num)"
+				@click="editCard($event, num)"
 			>Редактировать</button>
 		</div>
 	</div>
@@ -49,6 +49,7 @@
 		props: ["month", "year", "num", "monthColor"],
 		data() {
 			return {
+				isActive: false
 			};
 		},
 		computed: {
@@ -81,8 +82,10 @@
 			}
 		},
 		methods: {
-			consol(event, index) {
-				return alert(index);
+			editCard(event, index) {
+				this.isActive = true
+				setTimeout(()=> this.isActive = false, 500)
+				this.$emit('fliper', index)
 			}
 		},
 	};
@@ -96,6 +99,12 @@
 		margin: 1rem;
 		color: white;
 		border-radius: 5px;
+	}
+	.month-card-flip {
+		position: relative;
+		z-index: 1;
+		animation-name: flip;
+		animation-duration: 0.5s;
 	}
 	.month-card-header_number {
 		display: flex;
@@ -169,5 +178,20 @@
 	.btn:hover {
 		opacity: 0.9;
 		transition: 0.3s;
+	}
+
+	@keyframes flip {
+		0% {
+			-webkit-transform: rotateY(0deg);
+			transform: rotateY(0deg);
+		}
+		75% {
+			-webkit-transform: rotateY(360deg) scale(1.5);
+			transform: rotateY(360deg) scale(1.5);
+		}
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
 	}
 </style>
