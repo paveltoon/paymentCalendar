@@ -4,7 +4,9 @@
       :monthColor="getColors[index]"
       :month="month"
       :year="getCurrentYear"
-      :num="index">
+      :num="index"
+      @fliper="whatFlip"
+      >
       </app-month-card>
 
   </div>
@@ -28,6 +30,9 @@ export default {
     
     methods: {
         ...mapActions(['loaded', 'loadingCalendar','setTotalBalance']),
+        whatFlip(e) {
+            console.log("function whatFlip in Calendar.vue " + e)
+        },
     },
     beforeCreate() {
         axios.get('http://localhost:3555/calendar').then((res) => {
