@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="isLoaded">
+  <div class="calendar" v-if="isLoaded">
       <app-month-card class="col" v-for="(month,index) in getCalendar[getCurrentYear]" :key="index"
       :monthColor="getColors[index]"
       :month="month"
@@ -47,12 +47,14 @@ export default {
 </script>
 
 <style>
-    .container {
-        margin: auto auto;
-        padding: auto;
+    .calendar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .col {
         display: flex;
         align-items: center;
+                transition: width 1s ease-in-out;
     }
 </style>
