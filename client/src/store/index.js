@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
@@ -77,6 +78,11 @@ export const store = new Vuex.Store({
         },
         setAllYears(store, payload) {
             store.commit('setAllYears', payload)
+        },
+        saveCard(store, payload) {
+            axios.post('http://localhost:3555/saveCalendar', payload).then(response => {
+                console.log(response)
+            })
         }
     }
 })
