@@ -1,20 +1,21 @@
 <template>
   <div class="calendar" v-if="isLoaded">
-      <app-month-card class="col" v-for="(month,index) in getCalendar[getCurrentYear]" :key="index"
+
+      <app-year-card class="col" v-for="(month,index) in getCalendar[getCurrentYear]" :key="index"
       :monthColor="getColors[index]"
       :month="month"
       :year="getCurrentYear"
       :num="index"
       @fliper="whatFlip"
       >
-      </app-month-card>
+      </app-year-card>
 
   </div>
 </template>
 
 <script>
 import {mapGetters, mapActions} from 'vuex';
-import monthCard from './MonthCard';
+import yearCard from './YearCard';
 import axios from 'axios';
 export default {
     data() {
@@ -22,7 +23,7 @@ export default {
         }
     },
     components: {
-        "app-month-card" : monthCard
+        "app-year-card" : yearCard
     },
     computed: {
         ...mapGetters(['getCalendar', 'getCurrentYear', 'getColors', 'isLoaded']),
@@ -55,6 +56,6 @@ export default {
     .col {
         display: flex;
         align-items: center;
-                transition: width 1s ease-in-out;
+        transition: width 1s ease-in-out;
     }
 </style>
