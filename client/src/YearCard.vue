@@ -1,7 +1,7 @@
 <template>
-	<div class="month-card" :style="{ backgroundColor: calcColor }" :class="{'month-card-flip': isActive}">
-		<div class="month-card-header">
-			<div class="month-card-header_number">
+	<div class="year-card" :style="{ backgroundColor: calcColor }" :class="{'year-card-flip': isActive}">
+		<div class="year-card-header">
+			<div class="year-card-header_number">
 				<span :style="{ color: calcColor }">
 					<h3>{{ numModify }}</h3>
 				</span>
@@ -9,31 +9,31 @@
 			<h2>{{ month.name }}</h2>
 			<h4>{{ year }}</h4>
 		</div>
-		<div class="month-card-content">
-			<table class="month-card-content_table" v-if="month.deposited">
+		<div class="year-card-content">
+			<table class="year-card-content_table" v-if="month.deposited">
 				<tr :style="{ backgroundColor: calcDarkColor }">
-					<td class="month-card-content_table-column-left">Аренда:</td>
-					<td class="month-card-content_table-column-right">{{ month.cost }}</td>
+					<td class="year-card-content_table-column-left">Аренда:</td>
+					<td class="year-card-content_table-column-right">{{ month.cost }}</td>
 				</tr>
 				<tr :style="{ backgroundColor: calcLightColor }">
-					<td class="month-card-content_table-column-left">К/У:</td>
-					<td class="month-card-content_table-column-right">{{ month.ku }}</td>
+					<td class="year-card-content_table-column-left">К/У:</td>
+					<td class="year-card-content_table-column-right">{{ month.ku }}</td>
 				</tr>
 				<tr :style="{ backgroundColor: calcDarkColor }">
-					<td class="month-card-content_table-column-left">Сдано:</td>
-					<td class="month-card-content_table-column-right">{{ month.deposited }}</td>
+					<td class="year-card-content_table-column-left">Сдано:</td>
+					<td class="year-card-content_table-column-right">{{ month.deposited }}</td>
 				</tr>
 				<tr :style="{ backgroundColor: calcLightColor }">
-					<td class="month-card-content_table-column-left">Итого:</td>
-					<td class="month-card-content_table-column-right">{{ calcResult }}</td>
+					<td class="year-card-content_table-column-left">Итого:</td>
+					<td class="year-card-content_table-column-right">{{ calcResult }}</td>
 				</tr>
 			</table>
 
-			<div class="month-card-content_div" v-else>
+			<div class="year-card-content_div" v-else>
 				<h2>Не оплачено</h2>
 			</div>
 		</div>
-		<div class="month-card-footer">
+		<div class="year-card-footer">
 			<button
 				class="btn btn-edit"
 				:style="{ color: calcColor }"
@@ -72,7 +72,7 @@
 			calcResult() {
 				if(this.month.deposited) {
 					let total = +this.month.deposited - (+this.month.cost + +this.month.ku);
-					return total > 0 ? "+ " + total : "- " + total;
+					return total > 0 ? "+" + total : total;
 				} else {
 					return '';
 				}
@@ -92,7 +92,7 @@
 </script>
 
 <style>
-	.month-card {
+	.year-card {
 		display: inline-block;
 		min-width: 220px;
 		padding: 0;
@@ -100,17 +100,17 @@
 		color: white;
 		border-radius: 5px;
 	}
-	.month-card-flip {
+	.year-card-flip {
 		position: relative;
 		z-index: 1;
 		animation-name: flip;
 		animation-duration: 0.5s;
 	}
-	.month-card-header_number {
+	.year-card-header_number {
 		display: flex;
 		justify-content: center;
 	}
-	.month-card-header_number span {
+	.year-card-header_number span {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -120,7 +120,7 @@
 		opacity: 0.5;
 		border-radius: 0 0 20% 20%;
 	}
-	.month-card-header h2 {
+	.year-card-header h2 {
 		margin: 0;
 		font-weight: bold;
 		font-size: 2em;
@@ -129,38 +129,38 @@
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 	}
-	.month-card-header h4 {
+	.year-card-header h4 {
 		margin: -5px 0 0 0;
 		padding: 0 10px 20px;
 		opacity: 0.4;
 		letter-spacing: 0.05em;
 		text-align: center;
 	}
-	.month-card-content {
+	.year-card-content {
 		padding: 10px 10px;
 	}
-	.month-card-content_table {
+	.year-card-content_table {
 		width: 100%;
 		margin: 0;
 		border-collapse: collapse;
 	}
-	.month-card-content_table td {
+	.year-card-content_table td {
 		padding: 0 10px;
 		font-size: 1.2em;
 	}
-	.month-card-content_table-column-left {
+	.year-card-content_table-column-left {
 		text-align: left;
 	}
-	.month-card-content_table-column-right {
+	.year-card-content_table-column-right {
 		text-align: right;
 	}
-	.month-card-content_div {
+	.year-card-content_div {
 		display: flex;
 		justify-content: center;
 		margin-top: 20px;
 		height: 86px;
 	}
-	.month-card-footer {
+	.year-card-footer {
 		margin: 10px 0 15px;
 		display: flex;
 		justify-content: center;

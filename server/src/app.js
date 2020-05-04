@@ -39,6 +39,24 @@ app.get('/calendar', (req, res) => {
     res.send(calendar)
 })
 
+app.post('/saveCalendar', (req, res) => {
+    let md = req.body.monthData
+    for (let i in md) {
+        md[i] = parseInt(md[i])
+    }
+    console.log(req.body)
+    let postCalendar = calendar.full[req.body.year][req.body.monthIndex];
+    postCalendar.cost = md.cost;
+    postCalendar.ku = md.ku;
+    md.deposited == 0 ? postCalendar.deposited = null : postCalendar.deposited = md.deposited;
+    postCalendar.electric = md.electric;
+    postCalendar.water = md.water;
+
+    console.log(calendar.full[req.body.year][req.body.monthIndex])
+    fs.writeFileSync('./calendar.json', JSON.stringify(calendar.full))
+    res.send('Данные успешно сохранены')
+})
+
 app.listen(process.env.PORT || 3555, () => {
     console.log('Server was started')
 })
