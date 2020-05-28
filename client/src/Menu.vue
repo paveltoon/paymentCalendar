@@ -1,6 +1,6 @@
 <template>
   <div class="menu" v-if="isLoaded">
-      <h2 class="menu-logo">My Fucking Calendar</h2>
+      <h2 class="menu-logo">My Calendar</h2>
 
         <div class="menu-list">
             <h2 class="menu-list-main" @click="showMenu = !showMenu" :style="{backgroundColor: checkMenu}">- {{getCurrentYear}} -</h2>
